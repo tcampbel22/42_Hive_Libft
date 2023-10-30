@@ -1,41 +1,52 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/25 15:39:35 by tcampbel          #+#    #+#             */
-/*   Updated: 2023/10/30 15:29:05 by tcampbel         ###   ########.fr       */
+/*   Created: 2023/10/30 14:42:42 by tcampbel          #+#    #+#             */
+/*   Updated: 2023/10/30 15:25:25 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include <errno.h>
+#include <stdlib.h>
+#include "libft.h"
 
-void	*ft_memcpy(void *dest, const void *src, size_t n)
+int	ft_strlen(char *str)
 {
-	int				i;
-	unsigned char	*d;
-	const char		*s;
+	int	i;
 
-	d = dest;
-	s = src;
 	i = 0;
-	while (s[i] && n > 0)
-	{
-		d[i] = s[i];
+	while (str[i])
 		i++;
-		n--;
+	return (i);
+}
+
+char	*ft_strdup(char *src)
+{
+	int		i;
+	int		len;
+	char	*dest;
+
+	len = ft_strlen(src);
+	dest = malloc(len);
+	if ((!dest) || errno == ENOMEM)
+		return (0);
+	i = 0;
+	while (src[i])
+	{
+		dest[i] = src[i];
+		i++;
 	}
+	dest[i] = 0;
 	return (dest);
 }
 #include <stdio.h>
-
 int	main(void)
 {
-	char src[10] = "hello";
-//	char dest[10] = "";
+	char *str = "Hello, I live inside Malloc now";
 
-	printf("OG Function says = %s\n", memcpy(src + 2, src, 4));
-	printf("FT Function says = %s\n", ft_memcpy(src + 2, src, 4));
+	printf("%s\n", ft_strdup(str));
 }

@@ -6,7 +6,7 @@
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 15:18:41 by tcampbel          #+#    #+#             */
-/*   Updated: 2023/10/30 12:40:50 by tcampbel         ###   ########.fr       */
+/*   Updated: 2023/10/30 14:39:52 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	ft_atoi(const char *str)
 	num = 0;
 	while ((*str >= 9 && *str <= 13) || (*str == 32))
 		str++;
-		while (*str == 43 || *str == 45)
+	while (*str == 43 || *str == 45)
 	{
 		if (*str == 45)
 			neg_counter++;
@@ -38,11 +38,12 @@ int	ft_atoi(const char *str)
 		return (num);
 	else
 		return (-num);
+	return (0);
 }
 
 int	main(void)
 {
-	const char str1[] = "	 gdfgg134";
+	const char str1[] = "3240793459846958643";
 	const char str2[] = "   	57";
 	const char str3[] = "-13764";
 

@@ -1,41 +1,50 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/25 15:39:35 by tcampbel          #+#    #+#             */
-/*   Updated: 2023/10/30 15:29:05 by tcampbel         ###   ########.fr       */
+/*   Created: 2023/10/30 14:40:03 by tcampbel          #+#    #+#             */
+/*   Updated: 2023/10/30 16:04:19 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-
-void	*ft_memcpy(void *dest, const void *src, size_t n)
-{
-	int				i;
-	unsigned char	*d;
-	const char		*s;
-
-	d = dest;
-	s = src;
-	i = 0;
-	while (s[i] && n > 0)
-	{
-		d[i] = s[i];
-		i++;
-		n--;
-	}
-	return (dest);
-}
+#include <stdlib.h>
 #include <stdio.h>
+
+void	*ft_bzero(void *s, size_t n)
+{
+	unsigned char	*str;
+
+	str = s;
+	while (n > 0)
+	{
+		*str = '\0';
+		n--;
+		str++;
+	}
+	return (s);
+}
+
+void *ft_calloc(size_t count, size_t size)
+{
+	void	*ptr;
+
+	ptr = malloc(count, size);
+	return (ft_bzero(ptr, size));
+}
 
 int	main(void)
 {
-	char src[10] = "hello";
-//	char dest[10] = "";
-
-	printf("OG Function says = %s\n", memcpy(src + 2, src, 4));
-	printf("FT Function says = %s\n", ft_memcpy(src + 2, src, 4));
+	int	i = 0;
+	int	*array;
+	array = ft_calloc(3, sizeof(int));
+	while (i < 3)
+	{	
+		printf("%d", array[i]);
+		i++;
+	}
+	free(array);
 }
+
