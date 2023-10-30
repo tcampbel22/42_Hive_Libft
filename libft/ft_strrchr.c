@@ -6,7 +6,7 @@
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 11:47:28 by tcampbel          #+#    #+#             */
-/*   Updated: 2023/10/27 14:38:05 by tcampbel         ###   ########.fr       */
+/*   Updated: 2023/10/30 10:19:43 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,19 +31,15 @@ int	main(void)
 {
 	const char	str1[] = "baaa0b0aaa";
 	const char	str2[] = "";
-	int	c = 'c';
+	int	c = 'b';
 	int	d = '\0';
-	char* ret;
-	char* ret1;
-	char* ret2;
-	char* ret3;
+	char* ret = ft_strrchr(str1, c);
+	char* ret1 = strrchr(str1, c);
+	char* ret2 = ft_strrchr(str2, d);
+	char* ret3 = strrchr(str2, d);
 
-	ret = ft_strrchr(str1, c);
-	ret1 = strrchr(str1, c);
-	ret2 = ft_strrchr(str2, d);
-	ret3 = strrchr(str2, d);
 	printf("FT Function says = %s\n", ret);
-	printf("OG Funtion says = %s\n", ret1);
-	printf("FT Funtion says = %s\n", ret3);
-	printf("OG Funtion says = %s\n", ret2);
+	printf("OG Function says = %s\n", ret1);
+	printf("FT Function says = %s\n", ret3);
+	printf("OG Function says = %s\n", ret2);
 }

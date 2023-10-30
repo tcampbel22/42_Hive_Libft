@@ -6,7 +6,7 @@
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 15:04:07 by tcampbel          #+#    #+#             */
-/*   Updated: 2023/10/25 15:39:20 by tcampbel         ###   ########.fr       */
+/*   Updated: 2023/10/27 15:27:26 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <strings.h>
@@ -24,7 +24,7 @@ void	*ft_bzero(void *s, size_t n)
 		n--;
 		str++;
 	}
-	return (*s);
+	return (s);
 }
 int	main(void)
 {
