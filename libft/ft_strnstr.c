@@ -6,11 +6,11 @@
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 17:42:43 by tcampbel          #+#    #+#             */
-/*   Updated: 2023/10/30 12:38:31 by tcampbel         ###   ########.fr       */
+/*   Updated: 2023/10/31 19:10:38 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include  <string.h>
+#include  "libft.h"
 
 char *ft_strnstr(const char *hay, const char *needle, size_t n)
 {
@@ -36,16 +36,4 @@ char *ft_strnstr(const char *hay, const char *needle, size_t n)
 		n--;
 	}
 	return (0);
-}
-
-#include <stdio.h>
-
-int	main(void)
-{
-	char	hystck[] = "aaaaaaabobaaa";
-	char	ndl[] = "bob";
-	size_t	s = 10;
-
-	printf("OG Function says = %s\n", strnstr(hystck, ndl, s));
-	printf("FT Function says = %s\n", ft_strnstr(hystck, ndl, s));
 }

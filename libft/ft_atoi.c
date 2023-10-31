@@ -6,51 +6,49 @@
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 15:18:41 by tcampbel          #+#    #+#             */
-/*   Updated: 2023/10/30 14:39:52 by tcampbel         ###   ########.fr       */
+/*   Updated: 2023/10/31 19:15:17 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <stdio.h>
+#include "libft.h"
+
+static int	ft_is_neg(const char *str, int neg)
+{
+	if (*str == 43 || *str == 45)
+	{
+		if (*str == 45)
+		{
+			neg = -1;
+			return (neg);
+		}
+	}
+	return (neg);
+}
 
 int	ft_atoi(const char *str)
 {
-	int	neg_counter;
-	int	num;
+	int		neg;
+	long	num;
+	long	prev;
 
-	neg_counter = 0;
+	neg = 1;
 	num = 0;
+	prev = 0;
 	while ((*str >= 9 && *str <= 13) || (*str == 32))
 		str++;
-	while (*str == 43 || *str == 45)
-	{
-		if (*str == 45)
-			neg_counter++;
-		str++;
-	}
+	ft_is_neg(str, neg);
 	while (*str >= 48 && *str <= 57)
 	{
-		num *= 10;
-		num += *str - 48;
+		num = (num * 10) + (*str - 48);
 		str++;
+		if (prev > num)
+		{
+			if (neg == 1)
+			return (-1);
+		return (0);
+		}
+		prev = num;
 	}
-	if (neg_counter % 2 == 0)
-		return (num);
-	else
-		return (-num);
-	return (0);
-}
-
-int	main(void)
-{
-	const char str1[] = "3240793459846958643";
-	const char str2[] = "   	57";
-	const char str3[] = "-13764";
-
-	printf("OG Function say = %d\n", atoi(str1));
-	printf("OG Function say = %d\n", atoi(str2));
-	printf("OG Function say = %d\n", atoi(str3));
-	printf("FT Function say = %d\n", ft_atoi(str1));
-	printf("FT Function say = %d\n", ft_atoi(str2));
-	printf("FT Function say = %d\n", ft_atoi(str3));
+	num *= neg;
+	return ((int)num);
 }

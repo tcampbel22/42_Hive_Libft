@@ -6,11 +6,9 @@
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 15:39:35 by tcampbel          #+#    #+#             */
-/*   Updated: 2023/10/30 15:29:05 by tcampbel         ###   ########.fr       */
+/*   Updated: 2023/10/31 18:51:41 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <string.h>
 
 void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
@@ -28,14 +26,4 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 		n--;
 	}
 	return (dest);
-}
-#include <stdio.h>
-
-int	main(void)
-{
-	char src[10] = "hello";
-//	char dest[10] = "";
-
-	printf("OG Function says = %s\n", memcpy(src + 2, src, 4));
-	printf("FT Function says = %s\n", ft_memcpy(src + 2, src, 4));
 }

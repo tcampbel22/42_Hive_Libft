@@ -6,12 +6,9 @@
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 15:04:07 by tcampbel          #+#    #+#             */
-/*   Updated: 2023/10/30 15:47:39 by tcampbel         ###   ########.fr       */
+/*   Updated: 2023/10/31 18:50:25 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <strings.h>
-#include <string.h>
-#include <stdio.h>
 
 void	*ft_bzero(void *s, size_t n)
 {
@@ -25,10 +22,4 @@ void	*ft_bzero(void *s, size_t n)
 		str++;
 	}
 	return (s);
-}
-int	main(void)
-{
-	char	str[] = "lghdfgjh";
-	printf("OG function says = %s\n", bzero(str, 7));
-	printf("FT function says = %s\n", ft_bzero(str, 7));
 }

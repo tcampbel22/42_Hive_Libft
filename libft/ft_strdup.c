@@ -6,7 +6,7 @@
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 14:42:42 by tcampbel          #+#    #+#             */
-/*   Updated: 2023/10/30 15:25:25 by tcampbel         ###   ########.fr       */
+/*   Updated: 2023/10/31 19:18:07 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,11 +42,4 @@ char	*ft_strdup(char *src)
 	}
 	dest[i] = 0;
 	return (dest);
-}
-#include <stdio.h>
-int	main(void)
-{
-	char *str = "Hello, I live inside Malloc now";
-
-	printf("%s\n", ft_strdup(str));
 }
