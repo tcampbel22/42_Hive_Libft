@@ -6,14 +6,14 @@
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 11:34:46 by tcampbel          #+#    #+#             */
-/*   Updated: 2023/11/01 11:59:40 by tcampbel         ###   ########.fr       */
+/*   Updated: 2023/11/01 12:09:54 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 #define LIBFT_H
-#include<stdlib.h>
-#include<unistd.h>
+#include <stdlib.h>
+#include <unistd.h>
 
 int		ft_isalnum(int c);
 int		ft_isalpha(int c);

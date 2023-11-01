@@ -6,16 +6,43 @@
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 18:31:53 by tcampbel          #+#    #+#             */
-/*   Updated: 2023/11/01 11:45:40 by tcampbel         ###   ########.fr       */
+/*   Updated: 2023/11/01 17:59:29 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-/*#include <string.h>
+#include <string.h>
 #include <stdio.h>
 #include <ctype.h>
+#include <stdlib.h>
+#include "libft.h"
 
+int		ft_isalnum(int c);
+int		ft_isalpha(int c);
+int		ft_isdigit(int c);
+int		ft_isascii(int c);
+int		ft_isprint(int c);
+int		ft_tolower(int c);
+int		ft_toupper(int c);
+size_t	ft_strlen(const char *s);
+void	*ft_memset(void *b, int c, size_t len);
+void	*ft_memcpy(void *dest, const void *src, size_t n);
+void	*ft_memmove(void *dst, const void *src, size_t len);
+void	*ft_bzero(void *s, size_t n);
+size_t	ft_strlcat(char *dest, const char *src, size_t dstsize);
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
+char	*ft_strchr(const char *str, int c);
+char	*ft_strrchr(const char *str, int c);
+int		ft_strncmp(const char *str1, const char *str2, size_t n);
+void	*ft_memchr(const void *str, int c, size_t n);
+int		ft_memcmp(const void *str1, const void *str2, size_t n);
+char	*ft_strnstr(const char *hay, const char *needle, size_t n);
+int		ft_atoi(const char *str);
+void	*ft_calloc(size_t count, size_t size);
+
+char	*ft_strdup(const char *src);
 
 int	main(void)
 {
+/*
 //isalpha
 	int	a;
 	int	b;
@@ -39,6 +66,9 @@ int	main(void)
 	printf("%d\n", ft_isalnum(a));
 	printf("%d\n", ft_isalnum(b));
 	printf("%d\n", ft_isalnum(c));
+	printf("%d\n", isalnum(a));
+	printf("%d\n", isalnum(b));
+	printf("%d\n", isalnum(c));
 
 //isascii
 	int	a;
@@ -61,7 +91,7 @@ int	main(void)
 	int	c;
 
 	a = ' ';
-	b = 'p';
+	b = '~';
 	c = 9;
 	printf("FT function says =%d\n", ft_isprint(a));
 	printf("FT function says =%d\n", ft_isprint(b));
@@ -72,16 +102,16 @@ int	main(void)
 
 //isdigit
 
-	int	a;
-	int	b;
-	int	c;
+	int	a = '5';
+	int	b = 'a';
+	int	c = -3;
 
-	a = 5;
-	b = 'a';
-	c = -3;
 	printf("%d\n", ft_isdigit(a));
 	printf("%d\n", ft_isdigit(b));
 	printf("%d\n", ft_isdigit(c));
+	printf("%d\n", isdigit(a));
+	printf("%d\n", isdigit(b));
+	printf("%d\n", isdigit(c));
 
 //strlen
 
@@ -105,23 +135,30 @@ int	main(void)
 	printf("OG function says = %s\n", bzero(str, 7));
 	printf("FT function says = %s\n", ft_bzero(str, 7));
 
+
 //memcpy
 
-	char src[10] = "hello";
-	char dest[10] = "";
+	const	char src[] = "";
+	unsigned	char dest[20] = "";
+	const	char src1[] = "hello";
+	unsigned	char dest1[15] = "dfgfdg";
 
-	printf("OG Function says = %s\n", memcpy(src + 2, src, 4));
-	printf("FT Function says = %s\n", ft_memcpy(src + 2, src, 4));
+	printf("OG Function says = %s\n", memcpy(dest, src, 1));
+	printf("FT Function says = %s\n", ft_memcpy(dest, src, 1));
+	printf("OG Function says = %s\n", memcpy(dest1 + 2, src1, 3));
+	printf("FT Function says = %s\n", ft_memcpy(dest1 + 2, src1, 3));
 
 //memmove
 
-	char src[] = "hello World";
-	char dest[20] = "";
+	int src[5] = {0,6,6,7,8};
+	int dest[20] = {};
+	char src1[] = "hello";
+	char dest1[] = "";
 
 	printf("OG Function says = %s\n", memmove(dest, src, 4));
 	printf("FT Function says = %s\n", ft_memmove(dest, src, 4));
-	printf("OG Function says = %s\n", memmove(dest, src, 7));
-	printf("FT Function says = %s\n", ft_memmove(dest, src, 7));
+	printf("OG Function says = %s\n", memmove(dest1, src1, 1));
+	printf("FT Function says = %s\n", ft_memmove(dest1, src1, 1));
 
 //strlcpy
 
@@ -230,11 +267,11 @@ int	main(void)
 	printf("FT Function says = %d\n", ft_strncmp(str1, str2, n));
 	printf("OG Function says = %d\n", strncmp(str3, str4, p));
 	printf("FT Function says = %d\n", ft_strncmp(str3, str4, p));
-
+*/
 //memchr
 
-	const char	str1[] = "baaa0b0aaa";
-	const char	str2[] = "";
+	const char	str1[10] = "";
+	const char	str2[] = "llhl";
 	int	c = 'b';
 	int	d = '\0';
 	size_t n = 5;
@@ -244,7 +281,7 @@ int	main(void)
 	printf("OG Funtion says = %s\n", memchr(str1, c, n));
 	printf("FT Funtion says = %s\n", ft_memchr(str2, d, m));
 	printf("OG Funtion says = %s\n", memchr(str2, d, m));
-
+/*
 //memcmp
 
 	int	str1[] = {1,2,3,4,5,10};
@@ -284,23 +321,30 @@ int	main(void)
 	printf("FT Function = %d\n", ft_atoi(str2));
 	printf("FT Function = %d\n", ft_atoi(str3));
 	printf("FT Function = %d\n", ft_atoi(str4));
-
+*/
 //calloc
+/*
+	char	*array;
+	char	*array1;
 
-	int	i = 0;
-	int	*array;
-	array = ft_calloc(3, sizeof(int));
-	while (i < 3)
-	{
-		printf("%d", array[i]);
-		i++;
-	}
-	free(array);
+	array = "MMMMMMMMMM";
+	array1 = "MMMMMMMMMM";
+	printf("%s\n", array);
+	printf("%s\n", array1);
+//	array = ft_calloc(4294967295, sizeof(int));
+	array1 = calloc(4294967295, sizeof(int));
+//	printf("%s\n", array);
+	printf("%s", array1);
+//	free(array);
+	free(array1);
 
 //strdup
 
-	char *str = "Hello, I live inside Malloc now";
-
-	printf("%s\n", ft_strdup(str));
-
-}*/
+	char *str = "";
+	char *str2 = "Fuck you, I hate malloc";
+	printf("FT = %s\n", ft_strdup(str));
+	printf("OG = %s\n", strdup(str));
+	printf("FT = %s\n", ft_strdup(str2));
+	printf("OG = %s\n", strdup(str2));
+*/
+}
