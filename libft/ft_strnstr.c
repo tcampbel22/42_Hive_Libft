@@ -6,13 +6,13 @@
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 17:42:43 by tcampbel          #+#    #+#             */
-/*   Updated: 2023/10/31 19:10:38 by tcampbel         ###   ########.fr       */
+/*   Updated: 2023/11/01 11:56:02 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include  "libft.h"
+#include "libft.h"
 
-char *ft_strnstr(const char *hay, const char *needle, size_t n)
+char	*ft_strnstr(const char *hay, const char *needle, size_t n)
 {
 	size_t	i;
 	size_t	j;
@@ -20,11 +20,11 @@ char *ft_strnstr(const char *hay, const char *needle, size_t n)
 	i = 0;
 	j = 0;
 	if (n == 0)
-		return  (NULL);
+		return (NULL);
 	if (needle[j] == '\0')
 		return ((char *) hay);
 	while (hay[i])
-	{ 
+	{
 		while (hay[i + j] == needle[j] && (n - j) > 0)
 		{
 			j++;

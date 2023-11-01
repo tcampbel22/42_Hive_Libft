@@ -6,11 +6,11 @@
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 11:47:28 by tcampbel          #+#    #+#             */
-/*   Updated: 2023/10/31 19:05:28 by tcampbel         ###   ########.fr       */
+/*   Updated: 2023/11/01 11:57:18 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char *ft_strrchr(const char *str, int c)
+char	*ft_strrchr(const char *str, int c)
 {
 	char	a;
 
@@ -20,8 +20,8 @@ char *ft_strrchr(const char *str, int c)
 	while (*str >= 0)
 	{
 		if (*str == a)
-			return ((char*)str);
-	str--;
+			return ((char *)str);
+		str--;
 	}
 	return (0);
 }

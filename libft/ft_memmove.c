@@ -6,14 +6,16 @@
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 17:22:33 by tcampbel          #+#    #+#             */
-/*   Updated: 2023/10/31 18:53:04 by tcampbel         ###   ########.fr       */
+/*   Updated: 2023/11/01 11:46:52 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void *ft_memmove(void *dst, const void *src, size_t len)
+#include "libft.h"
+
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	int	i;
-	char	*d;
+	int			i;
+	char		*d;
 	const char	*s;
 
 	i = 0;
@@ -27,7 +29,7 @@ void *ft_memmove(void *dst, const void *src, size_t len)
 			len--;
 		}
 	}
-	else if(d <= s)
+	else if (d <= s)
 	{
 		*d = *s;
 		d++;

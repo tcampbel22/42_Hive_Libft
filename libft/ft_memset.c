@@ -6,13 +6,15 @@
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 10:38:02 by tcampbel          #+#    #+#             */
-/*   Updated: 2023/10/31 18:48:03 by tcampbel         ###   ########.fr       */
+/*   Updated: 2023/11/01 11:47:33 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
 void	*ft_memset(void *b, int c, size_t len)
 {
-	int	i;
+	int				i;
 	unsigned char	*dest;
 
 	dest = b;

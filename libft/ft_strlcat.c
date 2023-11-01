@@ -6,9 +6,11 @@
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 12:10:31 by tcampbel          #+#    #+#             */
-/*   Updated: 2023/10/31 19:00:32 by tcampbel         ###   ########.fr       */
+/*   Updated: 2023/11/01 11:53:01 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 size_t	ft_strlcat(char *dest, const char *src, size_t dstsize)
 {
@@ -19,14 +21,11 @@ size_t	ft_strlcat(char *dest, const char *src, size_t dstsize)
 
 	i = 0;
 	j = 0;
-	while (dest[i])
+	while (dest[i] && src[j])
 	{
 		i++;
-		destlen = i;
-	}
-	while (src[j])
-	{	
 		j++;
+		destlen = i;
 		srclen = j;
 	}
 	return (srclen + destlen);
@@ -38,7 +37,7 @@ size_t	ft_strlcat(char *dest, const char *src, size_t dstsize)
 			i++;
 			j++;
 		}
-		dest[i] ='\0';
+		dest[i] = '\0';
 	}
 	return (srclen + destlen);
 }

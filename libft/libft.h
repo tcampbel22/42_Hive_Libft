@@ -5,15 +5,15 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/25 17:54:19 by tcampbel          #+#    #+#             */
-/*   Updated: 2023/10/31 19:24:20 by tcampbel         ###   ########.fr       */
+/*   Created: 2023/11/01 11:34:46 by tcampbel          #+#    #+#             */
+/*   Updated: 2023/11/01 11:59:40 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #ifndef LIBFT_H
 #define LIBFT_H
-
-#include <stdlib.h>
-#include <unistd.h>
+#include<stdlib.h>
+#include<unistd.h>
 
 int		ft_isalnum(int c);
 int		ft_isalpha(int c);
@@ -37,6 +37,6 @@ int		ft_memcmp(const void *str1, const void *str2, size_t n);
 char	*ft_strnstr(const char *hay, const char *needle, size_t n);
 int		ft_atoi(const char *str);
 void	*ft_calloc(size_t count, size_t size);
-char	*ft_strdup(char *src);
+char	*ft_strdup(const char *src);
 
 #endif

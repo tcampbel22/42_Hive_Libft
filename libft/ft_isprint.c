@@ -6,13 +6,13 @@
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 15:53:08 by tcampbel          #+#    #+#             */
-/*   Updated: 2023/10/31 18:39:54 by tcampbel         ###   ########.fr       */
+/*   Updated: 2023/11/01 11:49:17 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_isprint(int c)
 {
-	if  (c >= ' ' && c <= 'z')
+	if (c >= ' ' && c <= 'z')
 		return (1);
 	return (0);
 }

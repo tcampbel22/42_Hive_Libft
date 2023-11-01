@@ -6,9 +6,11 @@
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 15:06:57 by tcampbel          #+#    #+#             */
-/*   Updated: 2023/10/31 19:08:20 by tcampbel         ###   ########.fr       */
+/*   Updated: 2023/11/01 10:58:22 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 void	*ft_memchr(const void *str, int c, size_t n)
 {

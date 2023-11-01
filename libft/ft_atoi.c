@@ -6,7 +6,7 @@
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 15:18:41 by tcampbel          #+#    #+#             */
-/*   Updated: 2023/10/31 19:15:17 by tcampbel         ###   ########.fr       */
+/*   Updated: 2023/11/01 11:48:36 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,8 @@ int	ft_atoi(const char *str)
 		if (prev > num)
 		{
 			if (neg == 1)
-			return (-1);
-		return (0);
+				return (-1);
+			return (0);
 		}
 		prev = num;
 	}

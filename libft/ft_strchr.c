@@ -6,7 +6,7 @@
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 09:48:02 by tcampbel          #+#    #+#             */
-/*   Updated: 2023/10/31 19:04:26 by tcampbel         ###   ########.fr       */
+/*   Updated: 2023/11/01 11:50:02 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@ char	*ft_strchr(const char *str, int c)
 	while (*str)
 	{
 		if (*str == a)
-			return ((char*)str);
-	str++;
+			return ((char *)str);
+		str++;
 	}
 	if (*str == a)
-		return ((char*)str);
+		return ((char *)str);
 	return (0);
 }

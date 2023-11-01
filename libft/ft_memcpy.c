@@ -6,9 +6,11 @@
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 15:39:35 by tcampbel          #+#    #+#             */
-/*   Updated: 2023/10/31 18:51:41 by tcampbel         ###   ########.fr       */
+/*   Updated: 2023/11/01 10:58:49 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
