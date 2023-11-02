@@ -6,13 +6,14 @@
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 18:31:53 by tcampbel          #+#    #+#             */
-/*   Updated: 2023/11/01 17:59:29 by tcampbel         ###   ########.fr       */
+/*   Updated: 2023/11/02 14:34:13 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <string.h>
 #include <stdio.h>
 #include <ctype.h>
 #include <stdlib.h>
+#include <unistd.h>
 #include "libft.h"
 
 int		ft_isalnum(int c);
@@ -37,8 +38,11 @@ int		ft_memcmp(const void *str1, const void *str2, size_t n);
 char	*ft_strnstr(const char *hay, const char *needle, size_t n);
 int		ft_atoi(const char *str);
 void	*ft_calloc(size_t count, size_t size);
-
 char	*ft_strdup(const char *src);
+void	ft_putchar_fd(char c, int fd);
+void	ft_putstr_fd(char *s, int fd);
+void	ft_putendl_fd(char *s, int fd);
+void ft_putnbr_fd(int n, int fd);
 
 int	main(void)
 {
@@ -138,27 +142,27 @@ int	main(void)
 
 //memcpy
 
-	const	char src[] = "";
-	unsigned	char dest[20] = "";
-	const	char src1[] = "hello";
-	unsigned	char dest1[15] = "dfgfdg";
+	char src[5] = "12345";
+	char dest[20] = "abcde";
+	char src1[] = "hello";
+	char dest1[] = "dfgfdg";
 
-	printf("OG Function says = %s\n", memcpy(dest, src, 1));
-	printf("FT Function says = %s\n", ft_memcpy(dest, src, 1));
-	printf("OG Function says = %s\n", memcpy(dest1 + 2, src1, 3));
-	printf("FT Function says = %s\n", ft_memcpy(dest1 + 2, src1, 3));
+	printf("OG Function says = %s\n", memcpy(dest, src, 3));
+	printf("FT Function says = %s\n", ft_memcpy(dest, src, 3));
+	printf("OG Function says = %s\n", memcpy(dest1, src1, 3));
+	printf("FT Function says = %s\n", ft_memcpy(dest1, src1, 3));
 
 //memmove
 
-	int src[5] = {0,6,6,7,8};
-	int dest[20] = {};
-	char src1[] = "hello";
-	char dest1[] = "";
+	char src3[5] = "12345";
+	char dest3[20] = "abcde";
+	char src4[] = "hello";
+	char dest4[] = "dfgfdg";
 
-	printf("OG Function says = %s\n", memmove(dest, src, 4));
-	printf("FT Function says = %s\n", ft_memmove(dest, src, 4));
-	printf("OG Function says = %s\n", memmove(dest1, src1, 1));
-	printf("FT Function says = %s\n", ft_memmove(dest1, src1, 1));
+	printf("OG Function says = %s\n", memmove(dest3, src3, 3));
+	printf("FT Function says = %s\n", ft_memmove(dest3, src3, 3));
+	printf("OG Function says = %s\n", memmove(dest4, src4, 3));
+	printf("FT Function says = %s\n", ft_memmove(dest4, src4, 3));
 
 //strlcpy
 
@@ -267,7 +271,7 @@ int	main(void)
 	printf("FT Function says = %d\n", ft_strncmp(str1, str2, n));
 	printf("OG Function says = %d\n", strncmp(str3, str4, p));
 	printf("FT Function says = %d\n", ft_strncmp(str3, str4, p));
-*/
+
 //memchr
 
 	const char	str1[10] = "";
@@ -281,7 +285,7 @@ int	main(void)
 	printf("OG Funtion says = %s\n", memchr(str1, c, n));
 	printf("FT Funtion says = %s\n", ft_memchr(str2, d, m));
 	printf("OG Funtion says = %s\n", memchr(str2, d, m));
-/*
+
 //memcmp
 
 	int	str1[] = {1,2,3,4,5,10};
@@ -346,5 +350,49 @@ int	main(void)
 	printf("OG = %s\n", strdup(str));
 	printf("FT = %s\n", ft_strdup(str2));
 	printf("OG = %s\n", strdup(str2));
+
+//putchar_fd
+
+	char	c = 'a';
+	char	d = 9;
+	int	fd = 2;
+	int	fd1 = 1;
+
+	ft_putchar_fd(c, fd);
+	ft_putchar_fd(d, fd1);
+
+//putstr_fd
+
+	char	str[] = "Hello";
+	char	str1[] = "World	";
+
+	ft_putstr_fd(str, 1);
+	write(1, "\n", 1);
+	ft_putstr_fd(str1, 2);
+
+//putendl_fd
+
+	char	str[] = "Hello";
+	char	str1[] = "World	";
+
+	ft_putendl_fd(str, 1);
+	ft_putendl_fd(str1, 2);
+
+//putnbr_fd
 */
+	int	nb = -0;
+	int nb1 = 6709;
+	int nb2 = -97795988;
+	int nb3 = 2147483647;
+	int nb4 = -2147483648;
+
+	ft_putnbr_fd(nb, 1);
+	write(1, "\n", 1);
+	ft_putnbr_fd(nb1, 1);
+	write(1, "\n", 1);
+	ft_putnbr_fd(nb2, 1);
+	write(1, "\n", 1);
+	ft_putnbr_fd(nb3, 1);
+	write(1, "\n", 1);
+	ft_putnbr_fd(nb4, 1);
 }
