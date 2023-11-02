@@ -6,7 +6,7 @@
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 18:31:53 by tcampbel          #+#    #+#             */
-/*   Updated: 2023/11/02 14:34:13 by tcampbel         ###   ########.fr       */
+/*   Updated: 2023/11/02 14:52:34 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <string.h>
@@ -43,6 +43,7 @@ void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void ft_putnbr_fd(int n, int fd);
+char	*ft_substr(char const *str, unsigned int start, size_t len);
 
 int	main(void)
 {
@@ -379,7 +380,7 @@ int	main(void)
 	ft_putendl_fd(str1, 2);
 
 //putnbr_fd
-*/
+
 	int	nb = -0;
 	int nb1 = 6709;
 	int nb2 = -97795988;
@@ -395,4 +396,5 @@ int	main(void)
 	ft_putnbr_fd(nb3, 1);
 	write(1, "\n", 1);
 	ft_putnbr_fd(nb4, 1);
+*/
 }
