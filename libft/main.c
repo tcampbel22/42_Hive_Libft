@@ -6,7 +6,7 @@
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 18:31:53 by tcampbel          #+#    #+#             */
-/*   Updated: 2023/11/02 14:52:34 by tcampbel         ###   ########.fr       */
+/*   Updated: 2023/11/03 14:54:22 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <string.h>
@@ -44,7 +44,7 @@ void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void ft_putnbr_fd(int n, int fd);
 char	*ft_substr(char const *str, unsigned int start, size_t len);
-
+char	*ft_strjoin(char const *s1, char const *s2);
 int	main(void)
 {
 /*
@@ -396,5 +396,24 @@ int	main(void)
 	ft_putnbr_fd(nb3, 1);
 	write(1, "\n", 1);
 	ft_putnbr_fd(nb4, 1);
+har str1[]
+
+//substr
+
+	char str[] = "HHHHello";
+	char str1[] = "";
+	unsigned int start = 3;
+
+	printf("%s\n", ft_substr(str, start, 4));
+	printf("%s\n", ft_substr(str1, start, 0));
+
+//strjoin
 */
+	char str[] = "Hello";
+	char str1[] = " World";
+	char str2[] = "erter";
+	char str3[] = "\0";
+
+	printf("%s\n", ft_strjoin(str, str1));
+	printf("%s\n", ft_strjoin(str2, str3));
 }

@@ -1,35 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/02 14:54:50 by tcampbel          #+#    #+#             */
-/*   Updated: 2023/11/03 12:54:51 by tcampbel         ###   ########.fr       */
+/*   Created: 2023/11/03 14:15:09 by tcampbel          #+#    #+#             */
+/*   Updated: 2023/11/03 14:54:40 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_substr(char const *str, unsigned int start, size_t len)
+char	*ft_strjoin(char const *str1, char const *str2)
 {
-	char	*sub;
 	size_t	i;
+	size_t	j;
+	char	*str3;
 
 	i = 0;
-	if (!str || ft_strlen(str) <= start || len == 0)
-		return (ft_strdup(""));
-	sub = (char *)malloc((len + 1));
-	if (len > ft_strlen(str))
-		len = ft_strlen(str);
-	if (!sub)
+	j = 0;
+	str3 = (char *)malloc((ft_strlen(str1) + ft_strlen(str2)) + 1);
+	if (!str3)
 		return (NULL);
-	while (str[start + i] && len - i > 0)
+	while (str1[i])
 	{
-		sub[i] = str[i + start];
+		str3[i] = str1[i];
 		i++;
 	}
-	sub[i] = '\0';
-	return (sub);
+	while (str2[j])
+	{
+		str3[i] = str2[j];
+		j++;
+		i++;
+	}
+	str3[i] = '\0';
+	return (str3);
 }
