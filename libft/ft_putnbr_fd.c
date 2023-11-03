@@ -6,11 +6,12 @@
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 13:48:04 by tcampbel          #+#    #+#             */
-/*   Updated: 2023/11/02 14:39:18 by tcampbel         ###   ########.fr       */
+/*   Updated: 2023/11/03 17:21:11 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <unistd.h>
 
 void	ft_putnbr_fd(int nb, int fd)
 {
@@ -26,7 +27,7 @@ void	ft_putnbr_fd(int nb, int fd)
 	else if (nb >= 10)
 	{
 		ft_putnbr_fd(nb / 10, fd);
-		ft_putchar_fd(nb % 10 + 48, fd);
+		ft_putchar_fd((nb % 10) + 48, fd);
 	}
 	else
 		ft_putchar_fd(nb + 48, fd);

@@ -6,7 +6,7 @@
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 18:31:53 by tcampbel          #+#    #+#             */
-/*   Updated: 2023/11/03 14:54:22 by tcampbel         ###   ########.fr       */
+/*   Updated: 2023/11/03 18:05:55 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <string.h>
@@ -42,9 +42,11 @@ char	*ft_strdup(const char *src);
 void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
-void ft_putnbr_fd(int n, int fd);
+void	ft_putnbr_fd(int n, int fd);
 char	*ft_substr(char const *str, unsigned int start, size_t len);
 char	*ft_strjoin(char const *s1, char const *s2);
+char	*ft_strtrim(char const *s1, char const *set);
+
 int	main(void)
 {
 /*
@@ -396,7 +398,7 @@ int	main(void)
 	ft_putnbr_fd(nb3, 1);
 	write(1, "\n", 1);
 	ft_putnbr_fd(nb4, 1);
-har str1[]
+
 
 //substr
 
@@ -408,7 +410,7 @@ har str1[]
 	printf("%s\n", ft_substr(str1, start, 0));
 
 //strjoin
-*/
+
 	char str[] = "Hello";
 	char str1[] = " World";
 	char str2[] = "erter";
@@ -416,4 +418,12 @@ har str1[]
 
 	printf("%s\n", ft_strjoin(str, str1));
 	printf("%s\n", ft_strjoin(str2, str3));
+*/
+//strtrim
+
+	char str[] = "HHHHelloHHH";
+	char set[] = "HHH";
+
+	printf("%s\n", ft_strtrim(str, set));
+
 }

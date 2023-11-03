@@ -1,41 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/25 17:22:33 by tcampbel          #+#    #+#             */
-/*   Updated: 2023/11/03 17:22:05 by tcampbel         ###   ########.fr       */
+/*   Created: 2023/11/03 15:01:30 by tcampbel          #+#    #+#             */
+/*   Updated: 2023/11/03 18:41:13 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
-{
-	char		*d;
-	const char	*s;
 
-	d = dst;
-	s = src;
-	if (d > s)
+char	*ft_strtrim(char const *s1, char const *set)
+{
+	size_t	i;
+	size_t	j;
+	char	*tr_str;
+	size_t	start;
+	size_t	len;
+	
+	i = 0;
+	j = 0;
+	while (set[i])
 	{
-		while (len > 0)
-		{
-			d[len - 1] = s[len -1];
-			len--;
-		}
+		i++;
+		j++;
 	}
-	else if (d <= s)
+	start = j;
+	i = 0;
+	while (set[i - 1] == s1[j - 1])
 	{
-		while (len > 0)
-		{
-			*d = *s;
-			d++;
-			s++;
-			len--;
-		}
+		i--;
+		j--;
 	}
-	return (dst);
+	len = j - start;
+	tr_str = ft_substr(s1, start, len);
+	return (tr_str);
 }
