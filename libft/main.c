@@ -418,12 +418,17 @@ int	main(void)
 
 	printf("%s\n", ft_strjoin(str, str1));
 	printf("%s\n", ft_strjoin(str2, str3));
-*/
-//strtrim
 
-	char str[] = "HHHHelloHHH";
-	char set[] = "HHH";
+//strtrim
+*/
+	char str[] = "HHHHelHHHlo";
+	char set[] = "P";
+	char str1[] = "AaAa";
+	char set1[] = "a";
+	char str2[] = "\0";
+	char set2[] = "";
 
 	printf("%s\n", ft_strtrim(str, set));
-
+	printf("%s\n", ft_strtrim(str1, set1));
+	printf("%s\n", ft_strtrim(str2, set2));
 }
