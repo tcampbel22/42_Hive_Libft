@@ -420,7 +420,7 @@ int	main(void)
 	printf("%s\n", ft_strjoin(str2, str3));
 
 //strtrim
-*/
+
 	char str[] = "HHHHelHHHlo";
 	char set[] = "P";
 	char str1[] = "AaAa";
@@ -431,4 +431,27 @@ int	main(void)
 	printf("%s\n", ft_strtrim(str, set));
 	printf("%s\n", ft_strtrim(str1, set1));
 	printf("%s\n", ft_strtrim(str2, set2));
+
+//strmapi
+
+	char str[] = "Helelelele";
+	
+	
+
+//striteri
+
+
+//itoa
+*/
+	int nb1 = 0;
+	int nb2 = -42; 
+	int nb3 = 2147483647;
+	int nb4 = -2147483648;
+
+	printf("Output = %s\n", ft_itoa(nb1));
+	printf("Output = %s\n", ft_itoa(nb2));
+	printf("Output = %s\n", ft_itoa(nb3));
+	printf("Output = %s\n", ft_itoa(nb4));
+
 }
+
