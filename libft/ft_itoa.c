@@ -1,66 +1,63 @@
 
 #include "libft.h"
 
-static int nb_count(long n)
+static int len_counter(long n)
 {
-	int	nb_len;
-
-	nb_len = 0;
-	while (n)
+	int	count;
+	
+	count = 0;
+	if (n == 0)
+		return (1);
+	if (n < 0)
+	{
+		count++;
+		n *= -1;
+	}
+	while (n > 0)
 	{
 		n /= 10;
-		nb_len++;
+		count++;
 	}
-	return (nb_len);
+	return (count);
 }
-
-static char *neg_str(long n, char *str, int nb_len)
+static char *mod_str(long n, char *str, int len)
 {
-	*str++ = '-';
-	n *= -1;
-	while (nb_len--)
+	str[len] = 0;
+	if (n < 0)
 	{
-		str[nb_len] = (n % 10) + 48;
+		*str = '-';
+		n *= -1;
+		while (--len)
+		{
+			str[len] = (n % 10) + 48;
+			n /= 10;
+		}
+	return (str);
+	}
+	while (len--)
+	{
+		str[len] = (n % 10) + 48;
 		n /= 10;
 	}
 	return (str);
 }
-
-static char *pos_str(long n, char *str, int nb_len)
-{
-	while (nb_len--)
-	{
-		str[nb_len] = (n % 10) + 48;
-		n /= 10;
-	}
-	return (str);
-}
-
 char *ft_itoa(int nb)
 {
 	char	*str;
 	long	n;
-	int	nb_len;
-	int 	nb_end;
+	int 	len;
 
 	n = nb;
-	nb_len = nb_count(n);
-	nb_end = nb_len;
-	if(!(str = malloc(nb_len + 2)))
+	len = len_counter(n);
+	str = malloc(len + 1);
+	if (!str)
 		return (NULL);
 	if (n == 0)
 	{
-		return ("0");
+		*str++ = '0';
+		*str = '\0';
+		return (str - 1);
 	}
-	if (n < 0)
-	{
-		neg_str(n, str, nb_len);
-		str[nb_end + 1] = 0;
-	}
-	else if (n > 0)
-	{
-		pos_str(n, str, nb_len);
-		str[nb_end] = 0;
-	}
+	mod_str(n, str, len);
 	return (str);
 }
