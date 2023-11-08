@@ -46,6 +46,7 @@ void	ft_putnbr_fd(int n, int fd);
 char	*ft_substr(char const *str, unsigned int start, size_t len);
 char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strtrim(char const *s1, char const *set);
+char	**ft_split(char const *s, char c);
 
 int	main(void)
 {
@@ -442,16 +443,26 @@ int	main(void)
 
 
 //itoa
-*/
+
 	int nb1 = 0;
 	int nb2 = -42; 
-	int nb3 = 2147483647;
+	int nb3 = +2147483647;
 	int nb4 = -2147483648;
 
 	printf("Output = %s\n", ft_itoa(nb1));
 	printf("Output = %s\n", ft_itoa(nb2));
 	printf("Output = %s\n", ft_itoa(nb3));
 	printf("Output = %s\n", ft_itoa(nb4));
+
+//split
+*/
+	char s[] = "He,llo,Hello";
+	char a = ',';
+	char **split = ft_split(s, a);
+	
+	printf("%s\n", split[0]);
+	printf("%s\n", split[1]);
+	printf("%s\n", split[2]);
 
 }
 
