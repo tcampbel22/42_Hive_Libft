@@ -6,7 +6,7 @@
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 12:10:31 by tcampbel          #+#    #+#             */
-/*   Updated: 2023/11/01 11:53:01 by tcampbel         ###   ########.fr       */
+/*   Updated: 2023/11/09 17:09:51 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,30 +14,24 @@
 
 size_t	ft_strlcat(char *dest, const char *src, size_t dstsize)
 {
-	size_t	i;
-	size_t	j;
 	size_t	destlen;
+	size_t	j;
 	size_t	srclen;
 
-	i = 0;
+	destlen = 0;
+	srclen = ft_strlen(src);
+	while (dest[destlen] && dstsize > destlen)
+		destlen++;
+	if (!dest && dstsize == 0)
+		return (0);
+	if (dstsize == 0 || dest[destlen])
+		return (srclen + destlen);
 	j = 0;
-	while (dest[i] && src[j])
+	while (src[j] && (dstsize - 1) > (j + destlen))
 	{
-		i++;
+		dest[destlen + j] = src[j];
 		j++;
-		destlen = i;
-		srclen = j;
 	}
-	return (srclen + destlen);
-	if (dstsize == 0)
-	{
-		while (src[j] && --dstsize)
-		{
-			dest[i] = src[j];
-			i++;
-			j++;
-		}
-		dest[i] = '\0';
-	}
-	return (srclen + destlen);
+	dest[destlen + j] = 0;
+	return (destlen + srclen);
 }
