@@ -6,22 +6,26 @@
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 11:47:28 by tcampbel          #+#    #+#             */
-/*   Updated: 2023/11/01 11:57:18 by tcampbel         ###   ########.fr       */
+/*   Updated: 2023/11/09 18:47:31 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 char	*ft_strrchr(const char *str, int c)
 {
 	char	a;
+	int		i;
 
+	i = 0;
 	a = c;
-	while (*str)
-		str++;
-	while (*str >= 0)
+	while (str[i])
+		i++;
+	while (i >= 0)
 	{
-		if (*str == a)
-			return ((char *)str);
-		str--;
+		if (str[i] == a)
+			return ((char *)str + i);
+		i--;
 	}
 	return (0);
 }
