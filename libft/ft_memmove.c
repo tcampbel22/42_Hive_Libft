@@ -6,7 +6,7 @@
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 17:22:33 by tcampbel          #+#    #+#             */
-/*   Updated: 2023/11/03 17:22:05 by tcampbel         ###   ########.fr       */
+/*   Updated: 2023/11/10 17:19:33 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 
 	d = dst;
 	s = src;
+	if (!dst && !src)
+		return (0);
 	if (d > s)
 	{
 		while (len > 0)

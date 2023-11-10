@@ -6,7 +6,7 @@
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 14:54:50 by tcampbel          #+#    #+#             */
-/*   Updated: 2023/11/03 15:58:20 by tcampbel         ###   ########.fr       */
+/*   Updated: 2023/11/10 17:56:06 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@ char	*ft_substr(char const *str, unsigned int start, size_t len)
 	size_t	i;
 
 	i = 0;
+	if ((len + start) > ft_strlen(str))
+		len = ft_strlen(str) - start;
 	if (!str || ft_strlen(str) <= start || len == 0)
 		return (ft_strdup(""));
 	sub = (char *)malloc((len + 1));
-	if (len > ft_strlen(str))
-		len = ft_strlen(str);
 	if (!sub)
 		return (NULL);
 	while (str[start + i] && len - i > 0)

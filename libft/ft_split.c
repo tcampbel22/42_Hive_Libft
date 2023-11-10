@@ -1,10 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/09 10:05:00 by tcampbel          #+#    #+#             */
+/*   Updated: 2023/11/10 18:28:04 by tcampbel         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "libft.h"
 
-
 static int	count_str(const char *s, char c)
 {
-	unsigned int	count;
+	size_t	count;
 
 	count = 0;
 	while (*s)
@@ -15,16 +25,16 @@ static int	count_str(const char *s, char c)
 		{
 			count++;
 			while (*s != c && *s)
-			s++;
+				s++;
 		}
 	}
 	return (count);
 }
 
-static int	fill_strings(char **result, const char *s, char c, unsigned int count)
+static int	fill_strings(char **result, const char *s, char c, size_t count)
 {
-	unsigned int	i;
-	unsigned int	len;
+	size_t	i;
+	size_t	len;
 
 	i = 0;
 	while (*s)
@@ -39,25 +49,28 @@ static int	fill_strings(char **result, const char *s, char c, unsigned int count
 		}
 		if (len > 0)
 		{
-			if (!(result[i] = malloc(len + 1)))
+			result[i] = malloc(len + 1);
+			if (!result[i])
 			{
 				while (i < count)
 				{
 					free(result[i]);
-					i++;
+					i--;
 				}
-			free(result);
+				free(result);
+				return (0);
 			}
 		}
 		ft_strlcpy(result[i++], s - len, len + 1);
 	}
+	result[count] = 0;
 	return (0);
 }
 
 char	**ft_split(char const *s, char c)
 {
-	char	**result; //2D string array
-	unsigned int	count; //number of string
+	char	**result;
+	size_t	count;
 
 	if (*s == 0)
 		return (NULL);
@@ -65,7 +78,6 @@ char	**ft_split(char const *s, char c)
 	result = malloc(count + 1);
 	if (!result)
 		return (NULL);
-	result[count] = 0;
 	fill_strings(result, s, c, count);
 	return (result);
 }

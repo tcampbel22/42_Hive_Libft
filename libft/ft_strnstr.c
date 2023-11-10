@@ -6,7 +6,7 @@
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 17:42:43 by tcampbel          #+#    #+#             */
-/*   Updated: 2023/11/03 17:33:49 by tcampbel         ###   ########.fr       */
+/*   Updated: 2023/11/10 16:28:07 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,11 @@ char	*ft_strnstr(const char *hay, const char *needle, size_t n)
 
 	i = 0;
 	j = 0;
-	if (n == 0)
-		return (NULL);
 	if (needle[j] == '\0')
 		return ((char *) hay);
-	while (hay[i])
+	if (n == 0)
+		return (0);
+	while (hay[i] && n)
 	{
 		while (hay[i + j] == needle[j] && (n - j) > 0)
 		{

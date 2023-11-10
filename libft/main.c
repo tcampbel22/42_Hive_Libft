@@ -6,7 +6,7 @@
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 18:31:53 by tcampbel          #+#    #+#             */
-/*   Updated: 2023/11/03 18:05:55 by tcampbel         ###   ########.fr       */
+/*   Updated: 2023/11/10 18:26:10 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <string.h>
@@ -146,25 +146,25 @@ int	main(void)
 
 //memcpy
 
-	char src[5] = "12345";
-	char dest[20] = "abcde";
-	char src1[] = "hello";
-	char dest1[] = "dfgfdg";
+	char src[] = "test basic du memcpy !";
+	char dest[] = "test basic du memcpy !"; 
+	char src1[] = "\0";
+	char dest1[2];
 
-	printf("OG Function says = %s\n", memcpy(dest, src, 3));
-	printf("FT Function says = %s\n", ft_memcpy(dest, src, 3));
-	printf("OG Function says = %s\n", memcpy(dest1, src1, 3));
-	printf("FT Function says = %s\n", ft_memcpy(dest1, src1, 3));
+	printf("OG Function says = %s\n", memcpy(dest, src, 10));
+	printf("FT Function says = %s\n", ft_memcpy(dest, src, 10));
+	printf("OG Function says = %s\n", memcpy(dest1, src1, 2));
+	printf("FT Function says = %s\n", ft_memcpy(dest1, src1, 1));
 
-//memmove
+	//memmove
 
-	char src3[5] = "12345";
-	char dest3[20] = "abcde";
+//	char src3[] = "\0";
+//	char dest3[] = "\0";
 	char src4[] = "hello";
 	char dest4[] = "dfgfdg";
 
-	printf("OG Function says = %s\n", memmove(dest3, src3, 3));
-	printf("FT Function says = %s\n", ft_memmove(dest3, src3, 3));
+	printf("OG Function says = %s\n", memmove(((void *)0), ((void *)0) , 5));
+	printf("FT Function says = %s\n", ft_memmove(((void *)0), ((void *)0), 5));
 	printf("OG Function says = %s\n", memmove(dest4, src4, 3));
 	printf("FT Function says = %s\n", ft_memmove(dest4, src4, 3));
 
@@ -184,12 +184,20 @@ int	main(void)
 //strlcat
 
 	char src[15] = "hellohello";
-	char dest[15] = "hello";
-	size_t	len = 5;
+	char dest[15:] = "hello";
+	char src1[] = "lorem";
+	char dest1[11] = "";
+	char src2[] = "";
+	char dest2[10] = "";
 
-	printf("OG Function says = %lu\n", strlcat(dest, src, len));
-	printf("FT Function says = %lu\n", ft_strlcat(dest, src, len));
-}
+
+	printf("OG Function says = %lu\n", strlcat(dest, src, 2));
+	printf("FT Function says = %lu\n", ft_strlcat(dest, src, 2));
+	printf("OG Function says = %lu\n", strlcat(dest1, src1, 1));
+	printf("FT Function says = %lu\n", ft_strlcat(dest1, src1, 1));
+	printf("OG Function says = %lu\n", strlcat(dest2, src2, 10));
+	printf("FT Function says = %lu\n", ft_strlcat(dest2, src2, 10));
+
 
 //tolower
 
@@ -251,7 +259,7 @@ int	main(void)
 	const char	str1[] = "baaa0b0aaa";
 	const char	str2[] = "";
 	int	c = 'b';
-	int	d = '\0';
+	int	d = 'b';
 	char* ret = ft_strrchr(str1, c);
 	char* ret1 = strrchr(str1, c);
 	char* ret2 = ft_strrchr(str2, d);
@@ -264,12 +272,12 @@ int	main(void)
 
 //strncmp
 
-	const char	str1[] = "Hillo";
-	const char	str2[] = "Hildo";
-	const char	str3[] = "aaaaaaaaaaaaaaat";
-	const char	str4[] = "aaaaaaaaaaaaaaaa";
-	size_t	n = 2;
-	size_t	p = 16;
+	const char	str1[] = "abcdef";
+	const char	str2[] = "abcdefghijklmnop";
+	const char	str3[] = "\0";
+	const char	str4[] = "\200";
+	size_t	n = 6;
+	size_t	p = 7;
 
 	printf("OG Function says = %d\n", strncmp(str1, str2, n));
 	printf("FT Function says = %d\n", ft_strncmp(str1, str2, n));
@@ -306,19 +314,23 @@ int	main(void)
 
 //strnstr
 
-	char	hystck[] = "aaaaaaabobaaa";
-	char	ndl[] = "bob";
-	size_t	s = 10;
+	char	hystck[] = "";
+	char	ndl[] = "";
+	size_t	s = 0;
+	char	hystck2[] = "lorem ipsum dolor sit amet";
+	char	ndl2[] = "sit";
+	size_t	s2 = 10;
 
 	printf("OG Function says = %s\n", strnstr(hystck, ndl, s));
 	printf("FT Function says = %s\n", ft_strnstr(hystck, ndl, s));
-
+	printf("OG Function says = %s\n", strnstr(hystck2, ndl2, s2));
+	printf("FT Function says = %s\n", ft_strnstr(hystck2, ndl2, s2));
 
 //atoi
 
 	const char str1[] = "-9223372036854775809";
-	const char str2[] = "	 57";
-	const char str3[] = "9223372036854775808";
+	const char str2[] = "	 -57";
+	const char str3[] = "18446744073709551616";
 	const char str4[] = "--42";
 
 	printf("OG Function = %d\n", atoi(str1));
@@ -329,9 +341,9 @@ int	main(void)
 	printf("FT Function = %d\n", ft_atoi(str2));
 	printf("FT Function = %d\n", ft_atoi(str3));
 	printf("FT Function = %d\n", ft_atoi(str4));
-*/
+
 //calloc
-/*
+
 	char	*array;
 	char	*array1;
 
@@ -400,15 +412,18 @@ int	main(void)
 	write(1, "\n", 1);
 	ft_putnbr_fd(nb4, 1);
 
-
 //substr
 
 	char str[] = "HHHHello";
 	char str1[] = "";
+	char str2[] = "hola";
 	unsigned int start = 3;
+	unsigned int start1 = 0;
+	size_t len = 18446744071615;
 
 	printf("%s\n", ft_substr(str, start, 4));
 	printf("%s\n", ft_substr(str1, start, 0));
+	printf("%s\n", ft_substr(str2, start1, len));
 
 //strjoin
 
@@ -422,8 +437,8 @@ int	main(void)
 
 //strtrim
 
-	char str[] = "HHHHelHHHlo";
-	char set[] = "P";
+	char str[] = "";
+	char set[] = "";
 	char str1[] = "AaAa";
 	char set1[] = "a";
 	char str2[] = "\0";
