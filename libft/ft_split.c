@@ -6,31 +6,47 @@
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 10:05:00 by tcampbel          #+#    #+#             */
-/*   Updated: 2023/11/10 18:28:04 by tcampbel         ###   ########.fr       */
+/*   Updated: 2023/11/13 19:04:56 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	count_str(const char *s, char c)
+static size_t	count_str(const char *s, char c)
 {
 	size_t	count;
+	size_t	i;
 
 	count = 0;
-	while (*s)
+	i = 0;
+	while (s[i])
 	{
-		while (*s == c && *s)
-			s++;
-		if (*s != c && *s)
+		while (s[i] == c && s[i])
+			i++;
+		if (s[i] != c && s[i])
 		{
 			count++;
-			while (*s != c && *s)
-				s++;
+			while (s[i] != c && s[i])
+				i++;
 		}
 	}
 	return (count);
 }
 
+static char	**free_str(char **result)
+{
+	size_t	i;
+
+	i = 0;
+	while (result[i])
+	{
+		free(result[i]);
+		i++;
+	}
+	free(result);
+	return (0);
+}
+/*
 static int	fill_strings(char **result, const char *s, char c, size_t count)
 {
 	size_t	i;
@@ -40,7 +56,7 @@ static int	fill_strings(char **result, const char *s, char c, size_t count)
 	while (*s)
 	{
 		len = 0;
-		while (*s == c)
+		while (*s == c && *s)
 			s++;
 		while (*s != c && *s)
 		{
@@ -48,36 +64,42 @@ static int	fill_strings(char **result, const char *s, char c, size_t count)
 			s++;
 		}
 		if (len > 0)
+			ft_substr(result[i++], 0, len + 1);
 		{
-			result[i] = malloc(len + 1);
-			if (!result[i])
-			{
-				while (i < count)
-				{
-					free(result[i]);
-					i--;
-				}
-				free(result);
-				return (0);
-			}
+			if (string_malloc(result, i, len + 1))
+				return (1);
 		}
 		ft_strlcpy(result[i++], s - len, len + 1);
 	}
 	result[count] = 0;
 	return (0);
 }
-
+*/
 char	**ft_split(char const *s, char c)
 {
 	char	**result;
-	size_t	count;
+	size_t	start;
+	size_t	end;
+	size_t	i;
 
-	if (*s == 0)
+	i = 0;
+	start = 0;
+	result = ft_calloc((count_str(s, c) + 1), sizeof(char *));
+	if (!result || !s)
 		return (NULL);
-	count = count_str(s, c);
-	result = malloc(count + 1);
-	if (!result)
-		return (NULL);
-	fill_strings(result, s, c, count);
+	while (s[start])
+	{
+		while (s[start] == c && s[start])
+			start++;
+		if (s[start] == '\0')
+			return (result);
+		end = start;
+		while (s[end] != c && s[end])
+			end++;
+		result[i] = ft_substr(s, start, end - start);
+		start = end;
+		if (result[i++] == '\0')
+			return (free_str(result));
+	} 
 	return (result);
 }
