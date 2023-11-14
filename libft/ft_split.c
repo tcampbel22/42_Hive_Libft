@@ -6,7 +6,7 @@
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 10:05:00 by tcampbel          #+#    #+#             */
-/*   Updated: 2023/11/13 19:04:56 by tcampbel         ###   ########.fr       */
+/*   Updated: 2023/11/14 14:29:26 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,35 +46,7 @@ static char	**free_str(char **result)
 	free(result);
 	return (0);
 }
-/*
-static int	fill_strings(char **result, const char *s, char c, size_t count)
-{
-	size_t	i;
-	size_t	len;
 
-	i = 0;
-	while (*s)
-	{
-		len = 0;
-		while (*s == c && *s)
-			s++;
-		while (*s != c && *s)
-		{
-			len++;
-			s++;
-		}
-		if (len > 0)
-			ft_substr(result[i++], 0, len + 1);
-		{
-			if (string_malloc(result, i, len + 1))
-				return (1);
-		}
-		ft_strlcpy(result[i++], s - len, len + 1);
-	}
-	result[count] = 0;
-	return (0);
-}
-*/
 char	**ft_split(char const *s, char c)
 {
 	char	**result;
@@ -100,6 +72,6 @@ char	**ft_split(char const *s, char c)
 		start = end;
 		if (result[i++] == '\0')
 			return (free_str(result));
-	} 
+	}
 	return (result);
 }

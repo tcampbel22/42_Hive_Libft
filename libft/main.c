@@ -6,7 +6,7 @@
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 18:31:53 by tcampbel          #+#    #+#             */
-/*   Updated: 2023/11/10 18:26:10 by tcampbel         ###   ########.fr       */
+/*   Updated: 2023/11/14 17:56:14 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <string.h>
@@ -15,38 +15,6 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include "libft.h"
-
-int		ft_isalnum(int c);
-int		ft_isalpha(int c);
-int		ft_isdigit(int c);
-int		ft_isascii(int c);
-int		ft_isprint(int c);
-int		ft_tolower(int c);
-int		ft_toupper(int c);
-size_t	ft_strlen(const char *s);
-void	*ft_memset(void *b, int c, size_t len);
-void	*ft_memcpy(void *dest, const void *src, size_t n);
-void	*ft_memmove(void *dst, const void *src, size_t len);
-void	*ft_bzero(void *s, size_t n);
-size_t	ft_strlcat(char *dest, const char *src, size_t dstsize);
-size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
-char	*ft_strchr(const char *str, int c);
-char	*ft_strrchr(const char *str, int c);
-int		ft_strncmp(const char *str1, const char *str2, size_t n);
-void	*ft_memchr(const void *str, int c, size_t n);
-int		ft_memcmp(const void *str1, const void *str2, size_t n);
-char	*ft_strnstr(const char *hay, const char *needle, size_t n);
-int		ft_atoi(const char *str);
-void	*ft_calloc(size_t count, size_t size);
-char	*ft_strdup(const char *src);
-void	ft_putchar_fd(char c, int fd);
-void	ft_putstr_fd(char *s, int fd);
-void	ft_putendl_fd(char *s, int fd);
-void	ft_putnbr_fd(int n, int fd);
-char	*ft_substr(char const *str, unsigned int start, size_t len);
-char	*ft_strjoin(char const *s1, char const *s2);
-char	*ft_strtrim(char const *s1, char const *set);
-char	**ft_split(char const *s, char c);
 
 int	main(void)
 {
@@ -470,14 +438,64 @@ int	main(void)
 	printf("Output = %s\n", ft_itoa(nb4));
 
 //split
-*/
-	char s[] = "He,llo,Hello";
+
+	char s[] = "lo,l,o";
 	char a = ',';
 	char **split = ft_split(s, a);
-	
-	printf("%s\n", split[0]);
-	printf("%s\n", split[1]);
-	printf("%s\n", split[2]);
+	char s1[] = "          ";
+	char b = ' ';
+	char **split1 = ft_split(s1, b);
+	int i = 0;
+	int j = 0;
 
+//	ft_split(s, a);
+	while (split[i]) 
+		printf("%s\n", split[i++]);
+	while (split1[j]) 
+		printf("%s\n", split1[j++]);
+
+//lstnew
+	char	*content = "fgdfg";
+	t_list	*head;
+	
+	head = ft_lstnew(content);
+	printf("%s\n", head->content);
+
+//lstadd_front
+
+	char	*content = "fgdfg";
+	t_list	*head;
+	t_list	*new_head = malloc(sizeof(t_list));
+	head = ft_lstnew(content);
+	printf("Head address = %p\n", head);
+	printf("Pointed address before = %p\n", new_head->next);
+	ft_lstadd_front(&head, new_head);
+	printf("Pointed address after = %p\n", new_head->next);
+
+//lstsize
+
+	char	*content = "fgdfg";
+	t_list	*head;
+	t_list	*new_head = malloc(sizeof(t_list));
+	head = ft_lstnew(content);
+	printf("Head address = %p\n", head);
+	printf("Pointed address before = %p\n", new_head->next);
+	ft_lstadd_front(&head, new_head);
+	printf("Pointed address after = %p\n", new_head->next);
+	printf("%d\n", ft_lstsize(head));
+*/
+//lstlast
+
+	t_list	*head;
+	t_list	*new_head = malloc(sizeof(t_list));
+	head = ft_lstnew(content);
+	printf("Head address = %p\n", head);
+	printf("Pointed address before = %p\n", new_head->next);
+	ft_lstadd_front(&head, new_head);
+	printf("Pointed address after = %p\n", new_head->next);
+
+//lstadd_back
+
+//lstdelone
 }
 

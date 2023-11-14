@@ -6,7 +6,7 @@
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 15:39:35 by tcampbel          #+#    #+#             */
-/*   Updated: 2023/11/10 17:30:39 by tcampbel         ###   ########.fr       */
+/*   Updated: 2023/11/14 11:19:49 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 
 	d = dest;
 	s = src;
-   if (!d && !s)
-	   return (0);
+	if (!d && !s)
+		return (0);
 	while (n--)
 	{
 		*d++ = *s++;

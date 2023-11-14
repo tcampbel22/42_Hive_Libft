@@ -6,16 +6,16 @@
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 11:12:14 by tcampbel          #+#    #+#             */
-/*   Updated: 2023/11/10 15:02:18 by tcampbel         ###   ########.fr       */
+/*   Updated: 2023/11/14 11:18:57 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int len_counter(long n)
+static int	len_counter(long n)
 {
 	int	count;
-	
+
 	count = 0;
 	if (n == 0)
 		return (1);
@@ -31,7 +31,8 @@ static int len_counter(long n)
 	}
 	return (count);
 }
-static char *mod_str(long n, char *str, int len)
+
+static char	*mod_str(long n, char *str, int len)
 {
 	str[len] = 0;
 	if (n < 0)
@@ -43,7 +44,7 @@ static char *mod_str(long n, char *str, int len)
 			str[len] = (n % 10) + 48;
 			n /= 10;
 		}
-	return (str);
+		return (str);
 	}
 	while (len--)
 	{
@@ -52,11 +53,12 @@ static char *mod_str(long n, char *str, int len)
 	}
 	return (str);
 }
-char *ft_itoa(int nb)
+
+char	*ft_itoa(int nb)
 {
 	char	*str;
 	long	n;
-	int 	len;
+	int		len;
 
 	n = nb;
 	len = len_counter(n);

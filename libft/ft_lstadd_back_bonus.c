@@ -1,32 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_lstadd_back_bonus.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/26 11:22:12 by tcampbel          #+#    #+#             */
-/*   Updated: 2023/11/13 10:50:56 by tcampbel         ###   ########.fr       */
+/*   Created: 2023/11/14 16:26:42 by tcampbel          #+#    #+#             */
+/*   Updated: 2023/11/14 17:13:21 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	size_t	i;
+	t_list	*new_node;
 
-	i = 0;
-	if (dstsize > 0)
+	if (!lst)
+		return ;
+	if (!*lst)
 	{
-		while (src[i] && i < (dstsize -1))
-		{
-			dst[i] = src[i];
-			i++;
-		}
-		dst[i] = '\0';
+		*lst = new;
+		return ;
 	}
-	while (src[i])
-		i++;
-	return (i);
+	new_node = ft_lstlast(*lst);
+	new_node->next = new;
 }
