@@ -1,21 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdelone_bonus.c                               :+:      :+:    :+:   */
+/*   ft_lstmap_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/14 17:14:09 by tcampbel          #+#    #+#             */
-/*   Updated: 2023/11/14 17:56:18 by tcampbel         ###   ########.fr       */
+/*   Created: 2023/11/14 18:41:07 by tcampbel          #+#    #+#             */
+/*   Updated: 2023/11/15 13:45:46 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void ft_lstdelone(t_list *lst, void (*del)(void*))
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	if (!lst || !del)
-		return ;
-	del(lst->content);
-	free (lst);
+	t_list	*lst1;
+	t_list	*new;
+	t_list	*temp;
+
+	lst1 = NULL;
+	while (lst)
+	{
+		if (f)
+		{
+			temp = (f)(lst->content);
+			new = ft_lstnew(temp);
+		}
+		else
+			return (NULL);
+		if (!new)
+		{
+			(del)(temp);
+			ft_lstclear(&lst1, del);
+			return (NULL);
+		}
+		ft_lstadd_back(&lst1, new);
+		lst = lst->next;
+	}
+	return (lst1);
 }

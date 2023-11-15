@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/01 11:34:46 by tcampbel          #+#    #+#             */
-/*   Updated: 2023/11/14 18:42:45 by tcampbel         ###   ########.fr       */
+/*   Created: 2023/11/15 13:19:05 by tcampbel          #+#    #+#             */
+/*   Updated: 2023/11/15 13:23:57 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,11 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-typedef struct	s_list
+typedef struct s_list
 {
 	void			*content;
 	struct s_list	*next;
-}		t_list;
+}	t_list;
 int		ft_isalnum(int c);
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
