@@ -6,7 +6,7 @@
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 17:22:33 by tcampbel          #+#    #+#             */
-/*   Updated: 2023/11/14 11:23:04 by tcampbel         ###   ########.fr       */
+/*   Updated: 2023/11/15 15:04:47 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	{
 		while (len > 0)
 		{
-			d[len - 1] = s[len -1];
+			d[len - 1] = s[len - 1];
 			len--;
 		}
 	}

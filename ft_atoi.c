@@ -6,7 +6,7 @@
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 15:18:41 by tcampbel          #+#    #+#             */
-/*   Updated: 2023/11/15 12:55:37 by tcampbel         ###   ########.fr       */
+/*   Updated: 2023/11/15 17:55:04 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,10 @@
 
 static int	convert_char(const char *str, int neg)
 {
-	long	prev;
 	long	num;
 	size_t	max;
 
 	num = 0;
-	prev = 0;
 	max = 0 - 1;
 	while (*str >= 48 && *str <= 57)
 	{
