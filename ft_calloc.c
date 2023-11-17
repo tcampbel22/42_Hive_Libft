@@ -6,7 +6,7 @@
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 14:40:03 by tcampbel          #+#    #+#             */
-/*   Updated: 2023/11/15 17:37:32 by tcampbel         ###   ########.fr       */
+/*   Updated: 2023/11/17 17:58:34 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,6 @@ void	*ft_calloc(size_t count, size_t size)
 	if (count != 0 && size != 0)
 		if (max / count < size)
 			return (0);
-	if ((count * size) > 2147483423)
-		return (0);
 	ptr = malloc(count * size);
 	if (ptr == 0)
 		return (0);

@@ -29,7 +29,7 @@ all: $(NAME)
 
 bonus: .bonus
 
-.bonus: $(BOBJS) 
+.bonus: $(BOBJS) $(OBJS)
 	ar rcs $(NAME) $(BOBJS) $(OBJS)
 	touch .bonus
 
